@@ -1,0 +1,107 @@
+﻿
+
+
+
+
+
+/*---------------------Jiggys Login Page---------------------*/
+
+.LoginForm {
+    position: absolute;
+    border: solid goldenrod 2px;
+    box-shadow: 3px 4px 30px 0 rgb(0, 0, 0);
+    padding: 10px 30px 20px 30px;
+    width: 550px;
+    border-radius: 12px;
+    background-color:darkred ;
+    color: white;
+    font-size: 30px;
+    /align-content: space-evenly;
+    margin-top: 525px;
+    /margin-bottom:150px;
+    margin-left: 80px;
+    text-shadow: 3px 1px 2px black; /* Dark border effect */
+}
+
+.loginBtn {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+/*Forms*/
+
+.Razor-Form {
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px 1px rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+
+/*--------------------------------Vehicle----------------------------------*/
+
+/* Vehicles Detail Image--------------------*/
+
+
+.VehicleFrontImg {
+    /border: solid black 3px;
+    height: 305px;
+    width: 600px;
+}
+
+
+
+.VehicleSideImg {
+    /border: solid black 3px;
+    height: 305px;
+    width: 600px;
+}
+
+.VehicleInteriorImg {
+    /border: solid black 3px;
+    height: 305px;
+    width: 600px;
+}
+
+
+/*Buttons At the bottom of Vehicle Detail Page*/
+.backHomeBtn {
+    position: absolute;
+    margin-left: 440px;
+    margin-top: 50px;
+}
+
+.backToGallaryBtn {
+    position: absolute;
+    margin-left: 520px;
+    margin-top: 50px;
+}
+
+.backToInventoryBtn {
+    position: absolute;
+    margin-left: 664px;
+    margin-top: 50px;
+}
+
+
+
+/*Vehicle Inventory Page*/
+
+.InventoryTextTitle{
+    position:absolute;
+    margin-left:300px;
+    /border: solid black 1px;
+    margin-top:20px;
+    margin-bottom:-10px;
+}
+
+.InventoryCardDescription{
+    /border:solid black 1px;
+    margin-top:-40px;
+    margin-bottom:150px;
+
+}

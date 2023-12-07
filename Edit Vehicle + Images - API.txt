@@ -1,0 +1,95 @@
+        //---------------------------------------------------------------------//
+        // EDIT: DTO FILE //
+
+        [HttpPut("filePut/{id}")] 
+        public async Task<IActionResult> EditFile(int id, [FromForm] VehicleCreateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingVehicle = await _cxt.Vehicles.FindAsync(id);
+
+                if (existingVehicle == null)
+                {
+                    return NotFound();
+                }
+
+
+
+                // Check if front image is provided
+                if (model.FrontImgFile != null && model.FrontImgFile.Length > 0)
+                {
+                    // Unique file name for the front image
+                    var uniqueFrontFileName = Guid.NewGuid() + "_" + model.FrontImgFile.FileName;
+
+                    // Define the final file path
+                    var apiFrontFilePath = Path.Combine("api", "server", "Updated-Vehicle-Imgs", uniqueFrontFileName);
+
+                    // Save the new front image to the server
+                    using (var stream = new FileStream(apiFrontFilePath, FileMode.Create))
+                    {
+                        await model.FrontImgFile.CopyToAsync(stream);
+                    }
+
+                    // Update the front image file path
+                    existingVehicle.FrontImgFilePath = apiFrontFilePath;
+                }
+
+
+                // Repeat for side and interior images (if provided)
+
+                // Check if a new side image is provided
+                if (model.SideImgFile != null && model.SideImgFile.Length > 0)
+                {
+                    // Generate
+                    var uniqueSideFileName = Guid.NewGuid() + "_" + model.SideImgFile.FileName;
+                    // Define the final file path 
+                    var apiSideFilePath = Path.Combine("api", "server", "Updated-Vehicle-Imgs", uniqueSideFileName);
+                    // Save & overwrite
+                    using (var stream = new FileStream(apiSideFilePath, FileMode.Create))
+                    {
+                        await model.SideImgFile.CopyToAsync(stream);
+                    }
+                    // Update
+                    existingVehicle.SideImgFilePath = apiSideFilePath;
+                }
+
+
+                // Check if a new interior image is provided
+                if (model.InteriorImgFile != null && model.InteriorImgFile.Length > 0)
+                {
+
+                    // Generate 
+                    var uniqueInteriorFileName = Guid.NewGuid() + "_" + model.InteriorImgFile.FileName;
+                    // Define
+                    var apiInteriorFilePath = Path.Combine("api", "server", "Updated-Vehicle-Imgs", uniqueInteriorFileName);
+                    // Save
+                    using (var stream = new FileStream(apiInteriorFilePath, FileMode.Create))
+                    {
+                        await model.InteriorImgFile.CopyToAsync(stream);
+                    }
+                    // Update 
+                    existingVehicle.InteriorImgFilePath = apiInteriorFilePath;
+                }
+
+
+                //Update other vehicle data 
+                existingVehicle.VehicleCategoryId = model.VehicleCategoryId;
+                existingVehicle.VehicleName = model.VehicleName;
+                existingVehicle.VehicleDescription = model.VehicleDescription;
+                existingVehicle.LicencePlateData = model.LicencePlateData;
+                existingVehicle.NumberOf_Passengers = model.NumberOf_Passengers;
+                existingVehicle.NumberOf_LargeBags = model.NumberOf_LargeBags;
+                existingVehicle.Has_AirConditioner = model.Has_AirConditioner;
+                existingVehicle.Has_Radio_CDPlayer = model.Has_Radio_CDPlayer;
+                existingVehicle.Has_PowerSteering_Windows = model.Has_PowerSteering_Windows;
+                existingVehicle.Has_AutomaticTransmission = model.Has_AutomaticTransmission;
+
+
+                // Save the changes
+                _cxt.Vehicles.Update(existingVehicle); 
+                _cxt.SaveChanges();
+                return CreatedAtAction(nameof(GetVehicleById), new { id = existingVehicle.Id }, existingVehicle);
+            }
+
+            return BadRequest(ModelState);
+        }

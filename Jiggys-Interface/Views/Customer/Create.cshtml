@@ -1,0 +1,99 @@
+﻿@model Jiggys_Interface.Models.ViewModels.CustomerVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<Center>
+
+    <h3>Start Your Booking</h3>
+
+    <div style="color: green;"> <h6>@ViewData["new-customer"] </h6> </div>  <!--show succes massage-->
+</Center>
+<hr />
+
+
+<div class="container row-cols-md-3  d-flex justify-content-center align-items-center ">
+
+    
+  
+    <!---->
+    <form asp-action="Create" class="Razor-Form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        @*<div class="form-group">
+            <a class="btn btn-outline-success" href="/Booking/Create" role="button">
+                <i class="fa-sharp fa-solid fa-pen-to-square"></i>Returning Customer
+            </a> <!--butten-->
+        </div>*@
+
+
+        @*<input asp-for="Id" hidden/>*@
+
+        @*<div class="form-group">
+        <label asp-for="Id" class="control-label"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+        </div>*@
+
+        <div class="form-group">
+            <label asp-for="FullName" class="control-label"></label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress" class="control-label"></label>
+            <input asp-for="EmailAddress" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LicenceNumber" class="control-label"></label>
+            <input asp-for="LicenceNumber" class="form-control" />
+            <span asp-validation-for="LicenceNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Street" class="control-label"></label>
+            <input asp-for="Street" class="form-control" />
+            <span asp-validation-for="Street" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Town" class="control-label"></label>
+            <input asp-for="Town" class="form-control" />
+            <span asp-validation-for="Town" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="form-group">
+            <label asp-for="ParishId" class="control-label"></label>
+            <select asp-for="SelectedParishId" class="form-control" asp-items="@Model.ParishList">
+                <option disabled selected> -- Select A Parish -- </option>
+            </select>
+            <span asp-validation-for="SelectedParishId" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="form-group row-cols-md-1">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div> <!----------------->
+
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

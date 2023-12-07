@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Jiggys_Interface.Models.ViewModels.BookingVM>
+
+@{
+    ViewData["Title"] = "BookingVMIndex";
+}
+
+<h1>BookingVM Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.Customer.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.Vehicle.VehicleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.PickUpLocation)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.DropOffLocation)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bookingAddOn.AddOnn.AddOnName) <!---->
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking.isPaid)
+            </th>
+
+
+            <th>
+                <p>
+                    <a asp-action="Create">Create New</a>
+                </p>
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.Customer.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.Vehicle.VehicleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.PickUpLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.DropOffLocation)
+            </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.bookingAddOn.AddOnn.AddOnName) <!---->
+                </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking.isPaid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

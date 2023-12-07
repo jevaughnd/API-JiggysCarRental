@@ -1,0 +1,30 @@
+Vehcicles:
+Nissan - Sentra
+Toyota - Camry
+Toyota - Corolla
+------
+Hunda - CR-V
+BMW - X3
+Hyundai - Tucson
+-----
+Toyota - Voxy
+Nissan - Serena
+Toyota - Sienna
+---------------
+
+Choose A Sedan
+(Toyota Camry)
+Starting At $35/Day Or $210/Week
+----------------------------------
+
+Choose A SUV
+(Hyundai Tucson)
+Starting At 50/Day Or $300/Week
+----------------------------------
+
+Choose A MiniVan
+(Nissan Serena)
+Starting At $60/Day Or $360/Week
+--------------------------------
+
+

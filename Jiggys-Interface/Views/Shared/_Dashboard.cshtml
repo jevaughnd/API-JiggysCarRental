@@ -1,0 +1,98 @@
+﻿@{
+	ViewData["Title"] = "_Dashboard";
+}
+
+<nav class="dashboard close">
+	<!--------------->
+
+
+
+	<header>
+		<center>
+			<h4>Jiggy's</h4>
+		</center>
+		<i class=' bx bx-chevron-left toggle'></i>
+	</header>
+
+
+	<div class="menu-bar">
+
+		<div class="menu">
+
+			<ul class="menu-links"> <!--ul-->
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+						<i class="bx bx-home-alt icon"></i>
+						<span class="text nav-text"> Home </span>
+					</a>
+				</li>
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="Booking" asp-action="Index">
+						<i class="bx bx-user-circle icon"></i>
+						<span class="text nav-text"> Profile </span>
+					</a>
+				</li>
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="Vehicle" asp-action="Index">
+						<i class='bx bx-car icon'></i>
+						<span class="text nav-text"> Vehicles </span>
+					</a>
+				</li>
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="Customer" asp-action="Index">
+						<i class='bx bx-male-female icon'></i>
+						<span class="text nav-text"> Your Customers </span>
+					</a>
+				</li>
+
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="Booking" asp-action="Index">
+						<i class="bx bx-bookmark-plus icon"></i>
+						@*<i class="fa-regular fa-calendar-days icon"></i>*@
+						<span class="text nav-text"> Customer Bookings </span>
+					</a>
+				</li>
+
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="Availability" asp-action="Index">
+						<i class='bx bx-question-mark icon'></i>
+						
+						<span class="text nav-text"> Vehicle Availabilities </span>
+					</a>
+				</li>
+
+
+
+				<li class="">
+					<a class="nav-link" asp-area="" asp-controller="" asp-action="">
+						<i class="bx bx-log-out icon"></i>
+						<span class="text nav-text"> Log Out </span>
+					</a>
+				</li>
+				
+
+			</ul><!--ul-->
+		</div>
+	</div>
+
+	
+
+
+	
+
+	<center><h6 class="dash-footer">Jiggy's Dashboard</h6></center>
+	<hr />
+	<hr />
+	<hr />
+
+
+</nav> <!----------------------------->
+
+
+<script src="~/js/site.js"></script> <!--toggle function-->

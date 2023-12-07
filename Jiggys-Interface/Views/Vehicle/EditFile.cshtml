@@ -1,0 +1,115 @@
+﻿@model Jiggys_Interface.Models.ViewModels.VehicleVM
+
+@{
+    ViewData["Title"] = "EditFile";
+}
+
+<partial name="_Dashboard" />
+
+<center>
+    <h3>Update Vehicle + Files</h3>
+
+</center>
+
+<hr />
+
+<div class="container row-cols-md-2  d-flex justify-content-center align-items-center ">
+
+    <form method="post" enctype="multipart/form-data" asp-action="EditFile" class="Razor-Form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+
+
+        <div class="form-group">
+            <label asp-for="VehicleCategoryId" class="control-label"></label>
+            <select asp-for="SelectedVehicleCategoryId" class="form-control" asp-items="@Model.VehicleCategoryList">
+                <option disabled selected> -- Select A Category -- </option>
+            </select>
+            <span asp-validation-for="SelectedVehicleCategoryId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="VehicleName" class="control-label"></label>
+            <input asp-for="VehicleName" class="form-control" />
+            <span asp-validation-for="VehicleName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="VehicleDescription" class="control-label"></label>
+            <input asp-for="VehicleDescription" class="form-control" />
+            <span asp-validation-for="VehicleDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LicencePlateData" class="control-label"></label>
+            <input asp-for="LicencePlateData" class="form-control" />
+            <span asp-validation-for="LicencePlateData" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumberOf_Passengers" class="control-label"></label>
+            <input asp-for="NumberOf_Passengers" class="form-control" />
+            <span asp-validation-for="NumberOf_Passengers" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NumberOf_LargeBags" class="control-label"></label>
+            <input asp-for="NumberOf_LargeBags" class="form-control" />
+            <span asp-validation-for="NumberOf_LargeBags" class="text-danger"></span>
+        </div>
+
+        <!--Images-->
+        <div class="form-group">
+            <label for="FrontImgFile">Front Image:</label>
+            <input type="file" name="FrontImgFile" id="FrontImgFile" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="SideImgFile">Side Image:</label>
+            <input type="file" name="SideImgFile" id="SideImgFile" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="InteriorImgFile">Interior Image:</label>
+            <input type="file" name="InteriorImgFile" id="InteriorImgFile" class="form-control">
+        </div>
+
+
+
+        <!--Features-->
+        <h6>Select Features</h6>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Has_AirConditioner" /> @Html.DisplayNameFor(model => model.Has_AirConditioner)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Has_Radio_CDPlayer" /> @Html.DisplayNameFor(model => model.Has_Radio_CDPlayer)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Has_PowerSteering_Windows" /> @Html.DisplayNameFor(model => model.Has_PowerSteering_Windows)
+            </label>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Has_AutomaticTransmission" /> @Html.DisplayNameFor(model => model.Has_AutomaticTransmission)
+            </label>
+        </div>
+
+
+        <div class="form-group row-cols-md-1">
+            <input type="submit" value="Update Vehicle" class="btn btn-primary " />
+        </div>
+
+    </form>
+
+</div> <!------------>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

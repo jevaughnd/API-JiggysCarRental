@@ -1,0 +1,122 @@
+﻿@model Jiggys_Interface.Models.ViewModels.BookingVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<partial name="_Dashboard" />
+<center>
+    <h3>Continue Booking</h3>
+    <h4>For Customer</h4>
+</center>
+<hr />
+
+
+<div class="container row-cols-md-3  d-flex justify-content-center align-items-center ">
+
+
+     <form asp-action="Create" class="Razor-Form" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            
+
+            @*<div class="form-group">
+                <label asp-for="Booking.Id" class="control-label"></label>
+                <input asp-for="Booking.Id" class="form-control" />
+                <span asp-validation-for="Booking.Id" class="text-danger"></span>
+            </div>*@
+
+
+            <div class="form-group">
+                <label asp-for="Booking.Customer.FullName" class="control-label"></label>
+                <select asp-for="SelectedCustomerId" class="form-control" asp-items="@Model.CustomerList">
+                    <option disabled selected> -- Select Customer -- </option>
+                </select>
+                <span asp-validation-for="SelectedCustomerId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Booking.Vehicle.VehicleName" class="control-label"></label>
+                <select asp-for="SelectedVehicleId" class="form-control" asp-items="@Model.VehicleList">
+                    <option disabled selected> -- Select A Vehicle -- </option>
+                </select>
+                <span asp-validation-for="SelectedVehicleId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Booking.StartDate" class="control-label"></label>
+                <input asp-for="Booking.StartDate" class="form-control" />
+                <span asp-validation-for="Booking.StartDate" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Booking.EndDate" class="control-label"></label>
+                <input asp-for="Booking.EndDate" class="form-control" />
+                <span asp-validation-for="Booking.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.PickUpLocation" class="control-label"></label>
+                <input asp-for="Booking.PickUpLocation" class="form-control" />
+                <span asp-validation-for="Booking.PickUpLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.DropOffLocation" class="control-label"></label>
+                <input asp-for="Booking.DropOffLocation" class="form-control" />
+                <span asp-validation-for="Booking.DropOffLocation" class="text-danger"></span>
+            </div>
+
+
+            
+            <div>
+                <h5>Extra Feature?</h5>
+                <h6>This Will Carry An Extra Cost Of $12/Day.</h6>
+
+                        <!--Booking AddOns from BookingAddOn Table-->
+                <div class="form-group">
+                    <label asp-for="bookingAddOn.AddOnn" class="control-label"></label>
+                    <select asp-for="SelectedAddOnId" class="form-control" asp-items="@Model.AddOnList">
+                        <option disabled selected> -- Select Additional Feature -- </option>
+                    </select>
+                    <span asp-validation-for="SelectedAddOnId" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                
+                <label asp-for="Booking.TotalPrice" class="control-label"></label>
+                <input asp-for="Booking.TotalPrice" class="form-control" />
+                <span asp-validation-for="Booking.TotalPrice" class="text-danger"></span>
+            </div>
+
+            <h6>Payment</h6>
+            <div class="form-group form-check">
+                
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Booking.isPaid" /> @Html.DisplayNameFor(model => model.Booking.isPaid)
+                </label>
+            </div>
+
+
+
+            <div class="form-group row-cols-md-1">
+                <input type="submit" value="Book" class="btn btn-primary" />
+            </div>
+
+             
+     </form>
+
+
+   
+
+</div> <!------------>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

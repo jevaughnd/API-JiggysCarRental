@@ -1,0 +1,352 @@
+﻿@model IEnumerable<Jiggys_Interface.Models.Vehicle>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+
+
+<section>
+    <!------------ Home Img Banner Section ---------->
+
+    <div class="HomeBannerContainer">
+
+        <div class="text-center">
+            <h1 class="heading1">Jiggy's</h1>
+        </div>
+
+        <div class="BigTextBox1">
+            <h1 class="biggestText">Simply </h1>
+            <h1 class="biggestText">The Best</h1>
+        </div>
+
+        <div class="BookBtn1">
+            <a class="btn btn-outline-success" href="/Home/Inventory" role="button">Our Inventory</a>
+        </div>
+
+        <div class="ShowGallaryBtn">
+            <a class="btn btn-outline-success" href="#VehicleGallary" role="button">Vehicle Gallary</a>
+        </div>
+
+        <div class="BookBtn2">
+            <a class="btn btn-outline-success" href="/Customer/Create" role="button">New Customer</a>
+        </div>
+
+
+        
+
+        <div>
+            <img class="BigImg1" src="~/WebSite Images/Grey Hyundai Tuscan Cropped.jpg" height="590" />
+        </div>
+     
+
+
+        
+    </div>
+
+</section> <!---------------------------------------------------------------------->
+<hr />
+
+
+
+
+
+
+<section>
+
+    <div>
+        <div>
+            <img class="BigImg2" src="~/WebSite Images/2022-Hyundai-Tucson-Calypso-Red_o-1024x576 cropped.png" height="400" />
+        </div>
+    </div>
+        
+        
+</section>
+<hr />
+
+
+@*<h5>Front</h5>
+<div class="VehicleFrontImg">
+
+    <a href="@Model.FrontImgFilePath" target="_blank">
+        <img src="@Model.FrontImgFilePath" height="300" />
+    </a>
+</div>
+*@
+
+
+
+
+
+
+<!-------------------------------------------Gallary----------------------------------------------->
+
+
+<center>
+    <H2 id="VehicleGallary"> Our Vehicles</H2>
+</center>
+
+<div class="Galary-Section"> <!----------------------------->
+
+
+
+
+        
+
+
+
+
+        <center><h3 class="CatTitle">Sedans</h3></center>
+        <div class="CardSection" id=""><!--Row-->
+    
+
+            @foreach (var pic in Model.Where(pic => pic.VehicleCategoryId == 1)) // Sedans
+            {
+                
+
+                <div class="card-container"> <!--1 card-->
+                    <center>
+                        <div>
+                            <!--Title-->
+                            <h5>
+                                @Html.DisplayFor(modelItem => pic.VehicleName)
+                            </h5>
+                        </div>
+                    </center>
+
+                   
+                    <div class="CardImgBox"> <!-- image --> <!--Colummn-->
+                        <a asp-action="VehicleDetail" asp-route-id="@pic.Id">
+                            <div class="">
+                                <img src="@pic.FrontImgFilePath" height="200" />
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <center>
+                        <div class="CardTextBox">
+                            <!--Text Box-->
+                            <h8>
+                                @Html.DisplayFor(modelItem => pic.VehicleDescription)
+                            </h8>
+
+                            <center>
+                                <div class="">
+                                    <a class="btn btn-outline-success" href="/Customer/Create" role="button">Book Now</a>
+                                </div>
+                                @*@Html.ActionLink("Availablility", "AvailabilityDetail", new { id=pic.Id })*@
+                                @*@Html.ActionLink("BookedDetail", "BookedDetail", new { id=pic.Id })*@
+
+                            </center>
+                        </div>
+                    </center>
+
+                </div>
+            }
+        </div> <!---------------------------------------------->
+
+
+
+
+
+    <center><h3 class="CatTitle">SUVs</h3></center>
+    <div class="CardSection" id="">
+        <!--Row-->
+        @foreach (var pic in Model.Where(pic => pic.VehicleCategoryId == 2)) // SUV
+        {
+
+
+            <div class="card-container">
+                <!--1 card-->
+                <center>
+                    <div>
+                        <!--Title-->
+                        <h5>
+                            @Html.DisplayFor(modelItem => pic.VehicleName)
+                        </h5>
+                    </div>
+                </center>
+
+
+                <div class="CardImgBox">
+                    <!-- image --> <!--Colummn-->
+                    <a asp-action="VehicleDetail" asp-route-id="@pic.Id">
+                        <div class="">
+                            <img src="@pic.FrontImgFilePath" height="200" />
+                        </div>
+                    </a>
+                </div>
+
+
+                <center>
+                    <div class="CardTextBox">
+                        <!--Text Box-->
+                        <h8>
+                            @Html.DisplayFor(modelItem => pic.VehicleDescription)
+                        </h8>
+
+                        <center>
+                            <div class="">
+                                <a class="btn btn-outline-success" href="/Customer/Create" role="button">Book Now</a>
+                            </div>
+                            @*@Html.ActionLink("Availablility", "AvailabilityDetail", new { id=pic.Id })*@
+                            @*@Html.ActionLink("BookedDetail", "BookedDetail", new { id=pic.Id })*@
+
+                        </center>
+                    </div>
+                </center>
+
+            </div>
+        }
+    </div> <!---------------------------------------------->
+
+
+
+
+    <center><h3 class="CatTitle">MiniVans</h3></center>
+    <div class="CardSection" id="">
+        <!--Row-->
+        @foreach (var pic in Model.Where(pic => pic.VehicleCategoryId == 3)) // Minivans
+        {
+
+
+            <div class="card-container">
+                <!--1 card-->
+                <center>
+                    <div>
+                        <!--Title-->
+                        <h5>
+                            @Html.DisplayFor(modelItem => pic.VehicleName)
+                        </h5>
+                    </div>
+                </center>
+
+
+                <div class="CardImgBox">
+                    <!-- image --> <!--Colummn-->
+                    <a asp-action="VehicleDetail" asp-route-id="@pic.Id">
+                        <div class="">
+                            <img src="@pic.FrontImgFilePath" height="200" />
+                        </div>
+                    </a>
+                </div>
+
+
+                <center>
+                    <div class="CardTextBox">
+                        <!--Text Box-->
+                        <h8>
+                            @Html.DisplayFor(modelItem => pic.VehicleDescription)
+                        </h8>
+
+                        <center>
+                            <div class="">
+                                <a class="btn btn-outline-success" href="/Customer/Create" role="button">Book Now</a>
+                            </div>
+                            @*@Html.ActionLink("Availablility", "AvailabilityDetail", new { id=pic.Id })*@
+                            @*@Html.ActionLink("BookedDetail", "BookedDetail", new { id=pic.Id })*@
+
+                        </center>
+                    </div>
+                </center>
+
+            </div>
+        }
+    </div> <!---------------------------------------------->
+
+
+
+        
+
+
+</div> <!------------------------------------------------------- Gallary Section---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<section class="VehicleCardSect">
+    <!----------------Vehicle Card Section-------------------------------------------->
+
+    <div id="VehicleCards"><center><h4>Vehicle Card Section</h4></center></div>
+
+
+    <div class="CardSection">
+        <!--row-->
+        <!--Sedans-->
+        <h4 class="CatTitle">Sedans</h4>
+
+        <div class="CardImgBox">
+            <!--Collum-->
+
+        </div><!----1----->
+
+        <div class="CardImgBox">
+        </div><!----2----->
+
+        <div class="CardImgBox">
+        </div> <!----3----->
+
+    </div><!------------------------------------>
+
+
+
+
+    <div class="CardSection">
+        <!--SUV's-->
+        <h4 class="CatTitle">SUV's</h4>
+
+        <div class="CardImgBox">
+        </div><!----1----->
+
+        <div class="CardImgBox">
+        </div><!----2----->
+
+        <div class="CardImgBox">
+        </div> <!----3----->
+
+
+
+
+    </div><!------------------------------------>
+
+
+
+
+    <div class="CardSection">
+        <!--MiniVan's-->
+        <h4 class="CatTitle">MiniVan's</h4>
+
+        <div class="CardImgBox">
+        </div><!----1----->
+
+        <div class="CardImgBox">
+        </div><!----2----->
+
+        <div class="CardImgBox">
+        </div> <!----3----->
+
+    </div><!------------------------------------>
+
+
+
+</section><!-------------------------------------------------------------------------------------------------------->*@

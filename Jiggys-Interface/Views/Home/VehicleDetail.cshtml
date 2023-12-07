@@ -1,0 +1,155 @@
+﻿@model Jiggys_Interface.Models.Vehicle
+
+@{
+    ViewData["Title"] = "VehicleDetail";
+}
+
+
+
+<center>
+    <h1>@Html.DisplayFor(model => model.VehicleName)</h1>
+    <h3>Vehicle Details</h3>
+
+
+
+
+<div>
+    <!-------------------------------------->
+
+    <h4>Front</h4>
+    <div class="VehicleFrontImg">
+
+        <a href="@Model.FrontImgFilePath" target="_blank">
+            <img src="@Model.FrontImgFilePath" height="300" />
+        </a>
+    </div>
+
+    <h4>Side</h4>
+
+    <div class="VehicleSideImg">
+        <a href="@Model.SideImgFilePath" target="_blank">
+            <img src="@Model.SideImgFilePath" height="300" />
+        </a>
+    </div>
+
+
+    <h4>Interior</h4>
+    <div class="VehicleInteriorImg">
+        <a href="@Model.InteriorImgFilePath" target="_blank">
+            <img src="@Model.InteriorImgFilePath" height="300" />
+        </a>
+    </div>
+
+
+
+</div><!-------------------------------------->
+
+</center>
+
+
+
+<div>
+    
+ 
+    <dl class="row">
+
+        <dt class="col-sm-2">
+             <h5>Check Availability</h5>
+        </dt>
+        <dd class="col-sm-10" >
+            @Html.ActionLink("Availablility", "AvailabilityDetail", new { id=Model.Id }) 
+        </dd>
+
+        
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VehicleName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VehicleName)
+        </dd>
+       
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VehicleCategoryId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleCategory.CategoryName)
+        </dd>
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VehicleDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VehicleDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LicencePlateData)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LicencePlateData)
+        </dd>
+        
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOf_Passengers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOf_Passengers)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOf_LargeBags)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOf_LargeBags)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Has_AirConditioner)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Has_AirConditioner)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Has_Radio_CDPlayer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Has_Radio_CDPlayer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Has_PowerSteering_Windows)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Has_PowerSteering_Windows)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Has_AutomaticTransmission)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Has_AutomaticTransmission)
+        </dd>
+    </dl
+
+
+</div>
+
+
+
+
+
+        <div class="backHomeBtn">
+            <a class="btn btn-outline-success" href="/Home/Index" role="button">Home</a>
+        </div>
+
+        <div class="backToGallaryBtn">
+            <a class="btn btn-outline-success" href="/Home/Index/#VehicleGallary" role="button">Back To Gallary</a>
+        </div>
+        
+        
+        <div class="backToInventoryBtn ">
+            <a class="btn btn-outline-success" href="/Home/Inventory" role="button">Inventory</a>
+        </div>
+
+
+
+
+
+

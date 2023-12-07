@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Jiggys_Interface.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<partial name="_Dashboard" />
+<center>
+    <div style="color: green;"> <h6>@ViewData["message"] </h6> </div>  <!--show succes massage-->
+    <h3>Bookings made</h3>
+</center>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehicle.VehicleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickUpLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DropOffLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isPaid)
+            </th>
+            <th>
+                <p>
+                    <a asp-action="Create" class="btn btn-sm btn-success">
+                   
+                        
+                        <i class="bx bx-bookmark-plus icon"></i>
+                        New Booking
+                        
+                        
+                    </a>
+                </p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle.VehicleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DropOffLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isPaid)
+            </td>
+            
+
+                <td>
+                    <div class=" btn-group w-75">
+                        <!--Align buttons-->
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">
+                            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </a>
+
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </td>
+
+
+        </tr>
+}
+    </tbody>
+</table>

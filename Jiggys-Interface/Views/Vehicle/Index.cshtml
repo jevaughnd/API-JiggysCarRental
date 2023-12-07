@@ -1,0 +1,202 @@
+﻿@model IEnumerable<Jiggys_Interface.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Dashboard" />
+<center>
+    <h3>Vehicles Created</h3>
+</center>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleCategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleDescription)
+            </th>
+
+            @*<th>
+                @Html.DisplayNameFor(model => model.LicencePlateData)
+            </th>*@
+
+            @*<th>
+                @Html.DisplayNameFor(model => model.FrontImgFilePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SideImgFilePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InteriorImgFilePath)
+            </th>*@
+
+            @*<th>
+                @Html.DisplayNameFor(model => model.NumberOf_Passengers)
+            </th>*@
+
+           @* <th>
+                @Html.DisplayNameFor(model => model.NumberOf_LargeBags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_AirConditioner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_Radio_CDPlayer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_PowerSteering_Windows)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_AutomaticTransmission)
+            </th>*@
+
+            <th>
+                Images
+            </th>
+            <th>
+                <a asp-action="Create" class="btn btn-success">
+
+                    @*<i class="fa-sharp fa-solid fa-pen-to-square"></i>*@
+                    <i class='bx bx-car icon'></i>
+                    New Vehicle
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleCategory.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleDescription)
+            </td>
+
+
+            @*<td>
+                @Html.DisplayFor(modelItem => item.LicencePlateData)
+            </td>*@
+
+
+            @*<td>
+                @Html.DisplayFor(modelItem => item.FrontImgFilePath)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.SideImgFilePath)
+            </td>
+                
+            <td>
+                @Html.DisplayFor(modelItem => item.InteriorImgFilePath)
+            </td>*@
+            
+
+
+            @*<td>
+                @Html.DisplayFor(modelItem => item.NumberOf_Passengers)
+            </td>*@
+
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.NumberOf_LargeBags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Has_AirConditioner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Has_Radio_CDPlayer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Has_PowerSteering_Windows)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Has_AutomaticTransmission)
+            </td>*@
+
+
+            <!--img link Test-->
+                <td width="10%">
+                    <a href="@item.FrontImgFilePath" target="_blank">Front</a> |
+                    <a href="@item.SideImgFilePath" target="_blank">Side</a> |
+                    <a href="@item.InteriorImgFilePath" target="_blank">Interior</a>
+                </td>
+
+          
+
+         
+
+                <td>
+                    <div class=" btn-group w-75">
+                        <!--Align buttons-->
+                       
+
+                        <a asp-action="EditFile" asp-route-id="@item.Id" class="btn btn-sm btn-success">
+                            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                      
+
+                        @*<a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </a>*@
+
+                        <a asp-action="DetailWithPic" asp-route-id="@item.Id" class="btn btn-sm btn-outline-dark">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </a>
+
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+
+
+                       @* <a asp-action="DeleteVehicle" asp-route-id="@item.Id" class="btn btn-danger">
+                            <i class="far fa-trash-alt"></i>
+                        </a>*@
+
+
+                    </div>
+                </td>
+
+
+
+
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@*<H6> Side Images</H6>
+
+<div class="grid-content_row">
+
+    @foreach (var pic in Model)
+    {
+        <div class="grid-content_colum">
+            <!-- image -->
+            <div class="ID-img-container">
+                <img src="@pic.SideImgFilePath" />
+            </div>
+
+        </div>
+    }
+</div>
+*@

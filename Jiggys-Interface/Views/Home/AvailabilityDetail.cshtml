@@ -1,0 +1,67 @@
+﻿@model Jiggys_Interface.Models.Availability
+
+@{
+    ViewData["Title"] = "AvailabilityDetail";
+}
+
+
+
+<div>
+    
+    <center>
+        <h4>Vehicle Availability Detail</h4>
+    </center>
+ 
+    <h3>@Html.DisplayFor(model => model.Vehicle.VehicleName)</h3>
+   
+
+
+    <hr />
+
+    <dl class="row">
+
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>*@
+        
+
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.VehicleName)
+        </dd>
+*@
+
+        <p>Ticked Box indicates an Available Vehicle</p>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsAvailable)
+        </dd>
+        
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AvailabilityDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AvailabilityDate)
+        </dd>
+
+
+        
+
+
+
+    </dl>
+</div>
+
+
+
+
+
+

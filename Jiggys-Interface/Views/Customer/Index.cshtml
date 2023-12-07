@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Jiggys_Interface.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Dashboard" />
+
+<center>
+    <div style="color: green;"> <h6>@ViewData["message"] </h6> </div>  <!--show succes massage-->
+
+    <h3>Customers </h3>
+    <h4>Who Started Booking</h4>
+</center>
+
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenceNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Town)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParishId)
+            </th>
+            <th>
+                <p>
+                    <a asp-action="Create" class="btn btn-success">
+                        @*<i class="fa-sharp fa-solid fa-pen-to-square"></i>*@
+
+                        <i class='bx bx-male-female icon'></i>
+                        New Customer
+                    </a>
+                </p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenceNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Town)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parish.ParishName)
+            </td>
+
+            <td>
+                <div class=" btn-group w-75">
+                    <!--Align buttons-->
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">
+                        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                    </a>
+
+                    <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </a>
+
+
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                </div>
+            </td>
+
+            
+        </tr>
+}
+    </tbody>
+</table>

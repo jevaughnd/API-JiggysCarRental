@@ -1,0 +1,16 @@
+Registerd:
+
+{
+  "username": "j.dyer@mail.com",
+  "password": "Password123$"
+}
+
+
+
+Login:
+
+{
+  "status": "succes",
+  "message": "login succesfull",
+  "data": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJqLmR5ZXJAbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY5OTQ1Mzk3Mn0.CQPLuluilPGSRQx3BDtujbDfZZCjZIonKZ3OBe7Ov222G0_OMODT9Z8EUg5HGJSVClUAMlBp7McskBGKwoNCJQ"
+}

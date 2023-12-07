@@ -1,0 +1,250 @@
+﻿@model IEnumerable<Jiggys_Interface.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+
+
+<center>
+    <H2> Available Vehicles In Our Inventory</H2>
+
+
+
+<div class="grid-content_row">
+    <center><h3>Sedans</h3></center>
+
+    @foreach (var pic in Model.Where(pic => pic.VehicleCategoryId == 1)) // Sedans
+    {
+        <div class="grid-content_colum">
+               
+            
+
+            <div class="InventoryTextTitle">
+                <h4>
+                    @Html.DisplayFor(modelItem => pic.VehicleName)
+                </h4>
+            </div>
+
+            
+
+            <!-- image -->
+            <a asp-action="VehicleDetail" asp-route-id="@pic.Id" >
+                <div class="">
+                    <img src="@pic.SideImgFilePath" height="450" />
+                </div>
+            </a>
+
+            <div class="InventoryCardDescription">
+                <h6>
+                    @Html.DisplayFor(modelItem => pic.VehicleDescription)
+                </h6>
+                <a class="btn btn-outline-success" href="/Customer/Create" role="button">Book Now</a>
+            </div>
+
+           
+        </div>
+    }
+</div>
+<hr /> <!---------------------------------------------->
+
+
+    <div class="grid-content_row">
+        <center><h3>SUV's</h3></center>
+
+        @foreach (var pic in Model.Where(pic => pic.VehicleCategoryId == 2)) // SUV
+        {
+            <div class="grid-content_colum">
+                
+
+
+                <div class="InventoryTextTitle">
+                    <h4>
+                        @Html.DisplayFor(modelItem => pic.VehicleName)
+                    </h4>
+                </div>
+
+
+
+                <!-- image -->
+                <a asp-action="VehicleDetail" asp-route-id="@pic.Id">
+                    <div class="">
+                        <img src="@pic.SideImgFilePath" height="450" />
+                    </div>
+                </a>
+
+                <div class="InventoryCardDescription">
+                    <h6>
+                        @Html.DisplayFor(modelItem => pic.VehicleDescription)
+                    </h6>
+                    <a class="btn btn-outline-success" href="/Customer/Create" role="button">Book Now</a>
+                </div>
+
+
+            </div>
+        }
+    </div>
+    <hr /> <!---------------------------------------------->
+
+
+    <div class="grid-content_row">
+        <center><h3>MiniVans</h3></center>
+
+        @foreach (var pic in Model.Where(pic => pic.VehicleCategoryId == 3)) // Minivans
+        {
+            <div class="grid-content_colum">
+
+
+                <div class="InventoryTextTitle">
+                    <h4>
+                        @Html.DisplayFor(modelItem => pic.VehicleName)
+                    </h4>
+                </div>
+
+
+
+                <!-- image -->
+                <a asp-action="VehicleDetail" asp-route-id="@pic.Id">
+                    <div class="">
+                        <img src="@pic.SideImgFilePath" height="450" />
+                    </div>
+                </a>
+
+                <div class="InventoryCardDescription">
+                    <h6>
+                        @Html.DisplayFor(modelItem => pic.VehicleDescription)
+                    </h6>
+                    <a class="btn btn-outline-success" href="/Customer/Create" role="button">Book Now</a>
+                </div>
+
+
+            </div>
+        }
+    </div>
+    <hr /> <!---------------------------------------------->
+
+</center>
+
+
+
+
+
+@*
+<div class="grid-content_row">
+
+    @foreach (var pic in Model)
+    {
+        <div class="grid-content_colum">
+            <!-- image -->
+            <div class="ID-img-container">
+                <img src="@pic.SideImgFilePath" />
+            </div>
+
+        </div>
+    }
+</div>*@
+
+
+
+@*
+
+
+<center>
+    <h3>Inventory List</h3>
+</center>
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleCategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicencePlateData)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOf_Passengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOf_LargeBags)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_AirConditioner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_Radio_CDPlayer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_PowerSteering_Windows)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Has_AutomaticTransmission)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleCategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LicencePlateData)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOf_Passengers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOf_LargeBags)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Has_AirConditioner)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Has_Radio_CDPlayer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Has_PowerSteering_Windows)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Has_AutomaticTransmission)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+*@
+
+
+
+
+

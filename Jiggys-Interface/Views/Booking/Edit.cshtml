@@ -1,0 +1,116 @@
+﻿@model Jiggys_Interface.Models.ViewModels.BookingVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<partial name="_Dashboard" />
+<center>
+    <h3>Update Booking</h3>
+    <h4>For Customer</h4>
+</center>
+<hr />
+
+
+<div class="container row-cols-md-3  d-flex justify-content-center align-items-center ">
+
+
+    <form asp-action="Edit" class="Razor-Form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+        @*<div class="form-group">
+        <label asp-for="Booking.Id" class="control-label"></label>
+        <input asp-for="Booking.Id" class="form-control" />
+        <span asp-validation-for="Booking.Id" class="text-danger"></span>
+        </div>*@
+
+
+        <div class="form-group">
+            <label asp-for="Booking.Customer.FullName" class="control-label"></label>
+            <select asp-for="SelectedCustomerId" class="form-control" asp-items="@Model.CustomerList">
+                <option disabled selected> -- Select Customer -- </option>
+            </select>
+            <span asp-validation-for="SelectedCustomerId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Booking.Vehicle.VehicleName" class="control-label"></label>
+            <select asp-for="SelectedVehicleId" class="form-control" asp-items="@Model.VehicleList">
+                <option disabled selected> -- Select A Vehicle -- </option>
+            </select>
+            <span asp-validation-for="SelectedVehicleId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StartDate" class="control-label"></label>
+            <input asp-for="StartDate" class="form-control" />
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="EndDate" class="control-label"></label>
+            <input asp-for="EndDate" class="form-control" />
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PickUpLocation" class="control-label"></label>
+            <input asp-for="PickUpLocation" class="form-control" />
+            <span asp-validation-for="PickUpLocation" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DropOffLocation" class="control-label"></label>
+            <input asp-for="DropOffLocation" class="form-control" />
+            <span asp-validation-for="DropOffLocation" class="text-danger"></span>
+        </div>
+
+
+
+        @*<div>
+            <h6>Would You Like To Add An Extra Feature?</h6>
+            <p> This Will Carry An Extra Cost Of $12/Day.</p>
+
+            <!--Booking AddOns from BookingAddOn Table-->
+            <div class="form-group">
+                <label asp-for="bookingAddOn.AddOnn" class="control-label"></label>
+                <select asp-for="SelectedAddOnId" class="form-control" asp-items="@Model.AddOnList">
+                    <option disabled selected> -- Select Additional Feature -- </option>
+                </select>
+                <span asp-validation-for="SelectedAddOnId" class="text-danger"></span>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+
+            <label asp-for="TotalPrice" class="control-label"></label>
+            <input asp-for="TotalPrice" class="form-control" />
+            <span asp-validation-for="TotalPrice" class="text-danger"></span>
+        </div>
+
+        <h6>Payment</h6>
+        <div class="form-group form-check">
+
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="isPaid" /> @Html.DisplayNameFor(model => model.isPaid)
+            </label>
+        </div>
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+
+
+    </form>
+
+
+
+
+</div> <!------------>
+
+
+
+
