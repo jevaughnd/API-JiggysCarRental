@@ -354,7 +354,7 @@ namespace API_JiggysCarRental.Controllers
 
         //--------------------------------------------------------------------
         //DELETE: RECORD & IMG FILES / Remove files from folder path
-        //The API for delete file and record works, but the frontend dosent as yet
+        ///The API for delete file and record works, but the frontend dosent as yet
         [HttpDelete("deleteVehicle/{id}")]
         public IActionResult DeleteVehicle(int id)
         {
